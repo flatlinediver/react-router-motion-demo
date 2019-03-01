@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<title>React Router Motion Demo</title>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700,900" rel="stylesheet">
+<style>
+body{
+	background: white;
+}
+.loading {
+	font-family: Quicksand;
+	position: absolute;
+	top:3em;
+	left:0;
+	bottom:0;
+	right:0;
+	text-align:center;
+	animation: loading cubic-bezier(0.770, 0.000, 0.175, 1.000) 2s infinite;
+	color:white;
+	font-size:3em;
+}
+
+@keyframes loading {
+  0% {opacity:1;}
+  50% {opacity:0;}
+  100% {opacity:1;}
+}
+
+</style>
+
+	</head>
+	<body>
+		<main id="root">			
+			<div class="loading">
+			    Loading...
+			</div>
+		</main>
+	</body>
+</html>
