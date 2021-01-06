@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import { Transition, TransitionGroup } from 'react-transition-group';
 import useMotion from './useMotion';
 import { routes } from '@constants';
+import Box from '@material-ui/core/Box';
 
 export default () => {
     const location = useLocation();
@@ -17,7 +18,7 @@ export default () => {
     } = useMotion(location.pathname)
 
     return (
-        <>
+        <Box>
             <TransitionGroup>
                 <Transition
                     key={ location.pathname }
@@ -49,6 +50,6 @@ export default () => {
                     )}
                 </Transition>
             </TransitionGroup>
-        </>
+        </Box>
     );
 };

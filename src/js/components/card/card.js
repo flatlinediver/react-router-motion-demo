@@ -29,11 +29,11 @@ export default memo(({status, onChange, presetHandler, precisionHandler, data}) 
             display="flex"
             width="100%"
             height="100%"
+            flexDirection="column"
             alignItems="center"
             justifyContent="center"
             top="0"
             left="0"
-            bgcolor="#212121"
         >
             <StaggeredMotion
                 defaultStyles={defaultStyles}
