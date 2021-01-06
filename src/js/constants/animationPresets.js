@@ -1,4 +1,4 @@
-export const animationPresets = {
+export default {
     initial: { stiffness: 470, damping: 25 },
     noWobble: { stiffness: 170, damping: 26 },
     gentle: { stiffness: 120, damping: 14 },

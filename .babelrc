@@ -1,9 +1,7 @@
 {
-    "presets": ["env", "stage-0", "react"],
-    "plugins": [
-      ["babel-plugin-styled-components", {
-        "pure": true
-      }]
-    ]
+  "presets": ["@babel/env", "@babel/react"],
+  "plugins": [
+    "@babel/proposal-class-properties",
+		"@babel/proposal-object-rest-spread"
+  ]
 }
-  

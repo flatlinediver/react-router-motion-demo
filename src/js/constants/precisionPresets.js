@@ -1,1 +1,5 @@
-export const precisionPresets = { min: 0.01, mid: 1, max: 10 }
+export default {
+    min: 0.01,
+    mid: 1,
+    max: 10
+};

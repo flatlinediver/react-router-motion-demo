@@ -3,23 +3,30 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-
 module.exports = {
   entry: [
-    'babel-polyfill',
     './src/js/index.js'
   ],
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/js/components'),
+      '@constants': path.resolve(__dirname, 'src/js/constants'),
+      '@styles': path.resolve(__dirname, 'src/js/styles'),
+      '@views': path.resolve(__dirname, 'src/js/views')
+    }
+  },
   devServer: {
-        stats: 'errors-only',
-        historyApiFallback: true,
-        host: 'localhost',
-        open: true,
-        port: 3000,
-        compress: true
+    stats: 'errors-only',
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    open: true,
+    port: 3000,
+    compress: true
   },
   optimization: {
     runtimeChunk: 'single',
@@ -38,12 +45,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            plugins: ['syntax-dynamic-import'],
-          }
-        }
+        loader: "babel-loader"
       },
       {
         test: /\.html$/,
@@ -55,26 +57,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader'
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif|jpeg)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            useRelativePath: true
+          {
+            loader: 'file-loader',
+            options: {}
           }
-        }]
+        ]
       }
     ]
   },
@@ -84,6 +73,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    })
+    }),
   ]
 };
