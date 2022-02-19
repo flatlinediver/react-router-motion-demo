@@ -1,7 +1,7 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -21,7 +21,6 @@ module.exports = {
     }
   },
   devServer: {
-    stats: 'errors-only',
     historyApiFallback: true,
     host: '0.0.0.0',
     open: true,
@@ -68,8 +67,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HashedModuleIdsPlugin(),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
