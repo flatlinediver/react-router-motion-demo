@@ -5,9 +5,11 @@ import Views from '@views';
 import { StylesProvider } from '@material-ui/core/styles';
 import { Credits } from '@components';
 import Box from '@material-ui/core/Box';
+import { Favicon } from './utils/favicon';
 
 render(
     <Router>
+        <Favicon />
         <StylesProvider injectFirst>
             <Box>
                 <Credits />
