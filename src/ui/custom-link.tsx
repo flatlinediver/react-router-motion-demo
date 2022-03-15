@@ -28,13 +28,7 @@ export const Link: FC<LinkProps> = ({ label, external, children, href, hoverBord
     : { 'aria-label': `${label}` };
 
   return (
-    <StyledLink
-      hoverBorderRadius={hoverBorderRadius}
-      href={href}
-      target={`_blank`}
-      rel={`noreferrer`}
-      {...additionalProps}
-    >
+    <StyledLink hoverBorderRadius={hoverBorderRadius} href={href} {...additionalProps}>
       {children}
     </StyledLink>
   );
