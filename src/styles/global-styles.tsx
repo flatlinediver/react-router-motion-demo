@@ -40,6 +40,9 @@ const GlobalStyle = createGlobalStyle`
     opacity: .1;
     border: 1px solid ${({ theme }) => theme.palette.text};
     margin: 1.3rem 0 0;
+    @media (max-width: 24rem) {
+      width: calc(100% - 2rem);
+    }
   }
   section {
     display: flex;
@@ -77,7 +80,12 @@ const GlobalStyle = createGlobalStyle`
       margin: .6rem 0 0;
     }
   }
-
+  h1, h2, p, ul, footer {
+    @media (max-width: 24rem) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
   .visually-hidden {
     position: absolute !important;
     height: 1px;
@@ -87,18 +95,6 @@ const GlobalStyle = createGlobalStyle`
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap; /* added line */
   }
-  h1, h2, p, ul, footer {
-    @media (max-width: 24rem) {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-  }
-  hr {
-    @media (max-width: 24rem) {
-      width: calc(100% - 2rem);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
