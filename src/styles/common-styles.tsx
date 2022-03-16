@@ -4,7 +4,7 @@ export interface StyledButtonProps {
   color?: string;
 }
 export interface StyledLinkProps extends StyledButtonProps {
-  asButton?: boolean;
+  $asButton?: boolean;
 }
 const mainElementBase = css`
   border: none;
@@ -112,11 +112,11 @@ const buttonStates = css`
   }
 `;
 
-export const linkStyles = ({ color, asButton }: StyledLinkProps) => css`
+export const linkStyles = ({ color, $asButton }: StyledLinkProps) => css`
   ${mainElementBase};
-  ${asButton ? buttonHoverElement({ color }) : linkHoverElement({ color })};
+  ${$asButton ? buttonHoverElement({ color }) : linkHoverElement({ color })};
   ${({ theme }) => focusElement({ color: color ?? theme.palette.link })};
-  ${asButton ? buttonStates : linkStates};
+  ${$asButton ? buttonStates : linkStates};
   color: ${({ theme }) => color ?? theme.palette.link};
 `;
 export const buttonStyles = ({ color }: StyledButtonProps) => css`

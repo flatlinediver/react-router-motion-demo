@@ -24,11 +24,11 @@ export const CardNav: FC = ({ children }) => {
   ];
   return (
     <Section>
-      <Link asButton label={prev} to={`${prev}`}>
+      <Link $asButton label={prev} to={`${prev}`}>
         <RiArrowLeftLine />
       </Link>
       {children}
-      <Link asButton label={next} to={`${next}`}>
+      <Link $asButton label={next} to={`${next}`}>
         <RiArrowRightLine />
       </Link>
     </Section>

@@ -56,7 +56,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: path.join(__dirname, "src", "public", "favicon"), to: "./" }
+        { from: path.join(__dirname, "src", "public"), to: "./public" }
       ],
     }),
     new webpack.DefinePlugin({

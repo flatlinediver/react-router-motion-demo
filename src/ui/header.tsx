@@ -30,7 +30,7 @@ export const Header: FC = () => {
         <Link
           sameWindow
           color={palette.text}
-          asButton
+          $asButton
           label={`Home`}
           to="https://www.flatlinediver.com"
         >
