@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -22,7 +23,8 @@ module.exports = {
   },
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.join(__dirname, 'build')
+    path: path.join(__dirname, 'build'),
+    clean: true
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -51,6 +53,11 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: path.join(__dirname, "src", "index.html"),
       filename: "./index.html"
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: path.join(__dirname, "src", "public", "favicon"), to: "./" }
+      ],
     }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
