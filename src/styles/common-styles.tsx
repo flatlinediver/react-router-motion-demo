@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export interface StyledButtonProps {
-  color?: string;
+  $color?: string;
 }
 export interface StyledLinkProps extends StyledButtonProps {
   $asButton?: boolean;
@@ -32,17 +32,17 @@ const actionElementBase = css`
   pointer-events: none;
 `;
 
-const linkHoverElement = ({ color }: StyledLinkProps) => css`
+const linkHoverElement = ({ $color }: StyledLinkProps) => css`
   &:before {
     ${actionElementBase};
     top: 100%;
     left: 0.3rem;
     width: calc(100% - 0.3rem);
     height: 2px;
-    background: ${({ theme }) => color ?? theme.palette.link};
+    background: ${({ theme }) => $color ?? theme.palette.link};
   }
 `;
-const buttonHoverElement = ({ color }: StyledButtonProps) => css`
+const buttonHoverElement = ({ $color }: StyledButtonProps) => css`
   &:before {
     ${actionElementBase};
     top: 50%;
@@ -50,11 +50,11 @@ const buttonHoverElement = ({ color }: StyledButtonProps) => css`
     transform: translate(-50%, -50%);
     width: 120%;
     height: 120%;
-    background: ${({ theme }) => color ?? theme.palette.text};
+    background: ${({ theme }) => $color ?? theme.palette.text};
   }
 `;
 
-const focusElement = ({ color }: StyledLinkProps) => css`
+const focusElement = ({ $color }: StyledLinkProps) => css`
   &:after {
     ${actionElementBase};
     top: 50%;
@@ -62,7 +62,7 @@ const focusElement = ({ color }: StyledLinkProps) => css`
     transform: translate(-50%, -50%);
     width: 120%;
     height: 120%;
-    border: 1px solid ${color};
+    border: 1px solid ${$color};
   }
 `;
 
@@ -112,17 +112,17 @@ const buttonStates = css`
   }
 `;
 
-export const linkStyles = ({ color, $asButton }: StyledLinkProps) => css`
+export const linkStyles = ({ $color, $asButton }: StyledLinkProps) => css`
   ${mainElementBase};
-  ${$asButton ? buttonHoverElement({ color }) : linkHoverElement({ color })};
-  ${({ theme }) => focusElement({ color: color ?? theme.palette.link })};
+  ${$asButton ? buttonHoverElement({ $color }) : linkHoverElement({ $color })};
+  ${({ theme }) => focusElement({ $color: $color ?? theme.palette.link })};
   ${$asButton ? buttonStates : linkStates};
-  color: ${({ theme }) => color ?? theme.palette.link};
+  color: ${({ theme }) => $color ?? theme.palette.link};
 `;
-export const buttonStyles = ({ color }: StyledButtonProps) => css`
+export const buttonStyles = ({ $color }: StyledButtonProps) => css`
   ${mainElementBase};
-  ${buttonHoverElement({ color })};
-  ${({ theme }) => focusElement({ color: color ?? theme.palette.text })};
+  ${buttonHoverElement({ $color })};
+  ${({ theme }) => focusElement({ $color: $color ?? theme.palette.text })};
   ${buttonStates};
-  color: ${({ theme }) => color ?? theme.palette.text};
+  color: ${({ theme }) => $color ?? theme.palette.text};
 `;

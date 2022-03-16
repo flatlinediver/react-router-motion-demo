@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { buttonStyles, StyledButtonProps } from '@styles/common-styles';
 
 const StyledButton = styled.button<StyledButtonProps>`
-  ${({ color }) => buttonStyles({ color })};
+  ${({ $color }) => buttonStyles({ $color })};
 `;
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, StyledButtonProps {}

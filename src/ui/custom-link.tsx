@@ -4,10 +4,10 @@ import { Link as RouterLink } from 'react-router-dom';
 import { StyledLinkProps, linkStyles } from '@styles/common-styles';
 
 const StyledLink = styled(RouterLink)<StyledLinkProps>`
-  ${({ color, $asButton }) => linkStyles({ color, $asButton })};
+  ${({ $color, $asButton }) => linkStyles({ $color, $asButton })};
 `;
 const StyledExternalLink = styled.a<StyledLinkProps>`
-  ${({ color, $asButton }) => linkStyles({ color, $asButton })};
+  ${({ $color, $asButton }) => linkStyles({ $color, $asButton })};
 `;
 
 interface LinkProps extends StyledLinkProps {
