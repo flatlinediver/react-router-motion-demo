@@ -21,16 +21,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     min-height: 100vh;
   }
-  main {
-    display: flex;
-    width: 100vw;
-    max-width: 330px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 3rem 0 0;
-  }
-  h1, section, hr, footer {
+  h1, section, hr {
     width: 100%;
   }
   h1 {
@@ -50,29 +41,6 @@ const GlobalStyle = createGlobalStyle`
     align-items: flex-start;
     justify-content: flex-start;
   }
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 1rem;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-  }
-  footer {
-    font-size: .8rem;
-    width: 100vw;
-    max-width: 330px;
-    margin: 1.3rem 0;
-    font-style: italic;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: .5rem;
-    align-items: start;
-    justify-items: start;
-  }
   p {
     line-height: 1.5;
     margin: .6rem 0;
@@ -80,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
       margin: .6rem 0 0;
     }
   }
-  h1, h2, p, ul, footer {
+  h1, h2, p, ul {
     @media (max-width: 24rem) {
       padding-left: 1rem;
       padding-right: 1rem;

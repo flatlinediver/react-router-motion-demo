@@ -1,24 +1,23 @@
-import { cta } from '@styles/commonStyles';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
+import { StyledLinkProps, linkStyles } from '@styles/common-styles';
 
-interface LinkProps {
-  href: string;
-  label: string;
-  external?: boolean;
-  hoverBorderRadius?: string;
-}
-
-const StyledLink = styled.a<{ hoverBorderRadius?: string }>`
-  ${cta};
-  border-radius: ${({ hoverBorderRadius }) => hoverBorderRadius && hoverBorderRadius};
-  &:before,
-  &:after {
-    border-radius: ${({ hoverBorderRadius }) => hoverBorderRadius && hoverBorderRadius};
-  }
+const StyledLink = styled(RouterLink)<StyledLinkProps>`
+  ${({ color, asButton }) => linkStyles({ color, asButton })};
+`;
+const StyledExternalLink = styled.a<StyledLinkProps>`
+  ${({ color, asButton }) => linkStyles({ color, asButton })};
 `;
 
-export const Link: FC<LinkProps> = ({ label, external, children, href, hoverBorderRadius }) => {
+interface LinkProps extends StyledLinkProps {
+  to: string;
+  label: string;
+  external?: boolean;
+  sameWindow?: boolean;
+}
+
+export const Link: FC<LinkProps> = ({ label, external, sameWindow, children, to, ...rest }) => {
   const additionalProps = external
     ? {
         target: `_blank`,
@@ -27,8 +26,12 @@ export const Link: FC<LinkProps> = ({ label, external, children, href, hoverBord
       }
     : { 'aria-label': `${label}` };
 
-  return (
-    <StyledLink hoverBorderRadius={hoverBorderRadius} href={href} {...additionalProps}>
+  return external ?? sameWindow ? (
+    <StyledExternalLink href={to} {...additionalProps} {...rest}>
+      {children}
+    </StyledExternalLink>
+  ) : (
+    <StyledLink to={to} {...rest} {...additionalProps}>
       {children}
     </StyledLink>
   );

@@ -15,22 +15,22 @@ import { Footer } from '@ui/footer';
 render(
   <ThemeModeProvider
     render={(mode) => (
-      <ThemeProvider theme={theme(mode)}>
-        <GlobalStyles>
-          <Header />
-          <Main>
+      <Router>
+        <ThemeProvider theme={theme(mode)}>
+          <GlobalStyles>
             <MotionConfigProvider>
-              <Router>
+              <Header />
+              <Main>
                 <MotionConfig />
                 <hr />
                 <Cards />
                 <hr />
                 <Footer />
-              </Router>
+              </Main>
             </MotionConfigProvider>
-          </Main>
-        </GlobalStyles>
-      </ThemeProvider>
+          </GlobalStyles>
+        </ThemeProvider>
+      </Router>
     )}
   />,
   document.getElementById('root')

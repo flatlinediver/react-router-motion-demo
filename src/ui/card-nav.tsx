@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import { routes } from '@constants/routes';
 import styled from 'styled-components';
-import { cta } from '@styles/commonStyles';
+import { Link } from '@ui/custom-link';
 
 const Section = styled.section`
   display: flex;
@@ -12,16 +12,6 @@ const Section = styled.section`
   flex-direction: row;
   width: max-content;
   padding-top: 1rem;
-`;
-const StyledLink = styled(Link)`
-  ${cta};
-  color: ${({ theme }) => theme.palette.link};
-  &:after {
-    border-color: ${({ theme }) => theme.palette.link};
-  }
-  &:focus {
-    outline-color: ${({ theme }) => theme.palette.link};
-  }
 `;
 
 export const CardNav: FC = ({ children }) => {
@@ -34,13 +24,13 @@ export const CardNav: FC = ({ children }) => {
   ];
   return (
     <Section>
-      <StyledLink to={`${prev}`}>
+      <Link asButton label={prev} to={`${prev}`}>
         <RiArrowLeftLine />
-      </StyledLink>
+      </Link>
       {children}
-      <StyledLink to={`${next}`}>
+      <Link asButton label={next} to={`${next}`}>
         <RiArrowRightLine />
-      </StyledLink>
+      </Link>
     </Section>
   );
 };
