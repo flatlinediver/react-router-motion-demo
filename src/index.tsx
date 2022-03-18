@@ -15,7 +15,7 @@ import { Footer } from '@ui/footer';
 render(
   <ThemeModeProvider
     render={(mode) => (
-      <Router>
+      <Router basename="/demo/73360-react-router-motion-demo">
         <ThemeProvider theme={theme(mode)}>
           <GlobalStyles>
             <MotionConfigProvider>
