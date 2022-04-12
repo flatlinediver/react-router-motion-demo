@@ -18,13 +18,14 @@ interface LinkProps extends StyledLinkProps {
 }
 
 export const Link: FC<LinkProps> = ({ label, external, sameWindow, children, to, ...rest }) => {
-  const additionalProps = external
-    ? {
-        target: `_blank`,
-        rel: `noreferrer`,
-        'aria-label': `${label} (opens in new window)`,
-      }
-    : { 'aria-label': `${label}` };
+  const additionalProps =
+    external && !sameWindow
+      ? {
+          target: `_blank`,
+          rel: `noreferrer`,
+          'aria-label': `${label} (opens in new window)`,
+        }
+      : { 'aria-label': `${label}` };
 
   return external ?? sameWindow ? (
     <StyledExternalLink href={to} {...additionalProps} {...rest}>

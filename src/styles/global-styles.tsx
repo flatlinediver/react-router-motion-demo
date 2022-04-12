@@ -21,11 +21,13 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     min-height: 100vh;
   }
-  h1, section, hr {
+  section, hr {
     width: 100%;
   }
   h1 {
     font-size: 1.6rem;
+    margin-bottom: 0;
+    width: 100%;
   }
   hr {
     opacity: .1;

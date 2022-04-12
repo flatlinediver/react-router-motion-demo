@@ -1,5 +1,8 @@
 {
-    "rewrites":  [
-      {"source": "/(.*)", "destination": "/"}
-    ]
+  "typescript": {
+    "ignoreBuildErrors": true
+  },
+  "rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
+  ]
 }

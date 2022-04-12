@@ -7,13 +7,15 @@ import styled, { useTheme } from 'styled-components';
 const StyledHeader = styled.header`
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 1rem;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  max-width: 1400px;
 `;
 const Nav = styled.nav`
   display: grid;

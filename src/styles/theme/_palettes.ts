@@ -16,7 +16,7 @@ export const _palettes: Record<
   },
   dark: {
     text: _baseColors.grey[200],
-    bg: _baseColors.grey[400],
+    bg: _baseColors.grey[600],
     link: _baseColors.accent.light,
   },
 } as const;
