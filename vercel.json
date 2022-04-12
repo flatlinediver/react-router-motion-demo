@@ -1,7 +1,4 @@
 {
-  "typescript": {
-    "ignoreBuildErrors": true
-  },
   "rewrites":  [
     {"source": "/(.*)", "destination": "/"}
   ]
